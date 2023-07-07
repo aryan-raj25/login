@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <Script>
+        function Validate_Form() {
+            var n = documment.forms["RefForm"]["name"].value;
+            var p =  documment.forms["RefForm"]["mobile_phone"];
+            var e =  documment.forms["RefForm"]["email"];
+            var l = documment.forms["RefForm"]["land_phone"];
+            var c =  documment.forms["RefForm"]["subject"];
+            
+            var letters=/^[A-Za-z]){6,10}$/;
+            var mobile_pattern=/^([0-9]){10}$/;
+            var email_pattern = /^[A-Za-z0-9._-]+@[A-Za-z0-9.-]+\.[A-Aa-z]{2,4}
+            var land_pattern = /^[0-9]{3}[-.][0-9]{3}[-,][0-9]{4}$/;
+            
+            if(n == "") {
+                alert("please enter your name");
+                document.forms["RegForm"]["name"].focus();
+                return false;
+            }
+
+            else if((n.match(letters) == null) || (n.length<6) || (n.length))
+            alert("Please enter valid name between 6 to 10 characters");
+            document.forms["RegForm"]["name"].focus();
+            ocument.forms["RegForm"]["name"].value="";
+            return false;
+
+         }
+         else {
+            alert("Your Name is Valid");
+         }
+         if (p.value == "") {
+            alert("Please enter your mobile number");
+            p.focus();
+            return false;
+         }
+         if(e.value == ""){
+            alert("Please enter your email id ");
+            document.forms["RegForm"]["email"].focus();
+         }
+         else {
+            alert("please enter your valide email ID");
+            e.focus();
+            e.value="";
+            return false;
+         }
+         else if(l.value.match(land_pattern)) {
+            alert("Your land phone is Fine"+l.value);
+         }
+         else{
+            alert("Please enter your Land Phone Number");
+            l.focus();
+            l.value="";
+            return false;
+         }
+         if(c.value.selectedIndex <1) {
+            window.alert("please select your course");
+            c.focus();
+            return false;
+         }
+         else {
+            window.alert("YOu have selected course "+" "+c.value);
+         }
+         return true;
+        }
+    </Script>
+    </html>
+
+</head>
+<body>
+    <h1> REGISTRATION FORM </h1>
+    <form id ="RegForm" onsubmit = "return Validate_Form();" method="POST>"
+    Name: <input type = "text" id = "Name">
+<br>
+<br>
+Mobile Number: <input type = "text" id = "mobile_phone">
+<br>
+<br>
+Email: <input type = "text" id= "email">
+<br>
+<br>
+Land Phone Numbaer: <input type = "text" id="land_phone">
+<br>
+<br>
+
+SELECT YOUR COURSE : 
+<select type = "text" value = "subject" id = "subject">
+    <option> BTECH </option>
+    <option> BCA </option>
+    <option> MBA </option>
+    <option> MTECH</option>
+</select>
+<br>
+<br>
+<br>
+<br>
+
+<input type = "submit" value = "SUBMIT" id ="submit">
+<input type = "reset" value = "RESET" id= "reset">
+</form>
+
+</body>
+</html>
